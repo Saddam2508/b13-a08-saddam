@@ -7,7 +7,7 @@ const FeaturedTiles = async () => {
   console.log(tiles);
   return (
     <div className="container mx-auto my-10">
-      <h2 className="font-bold text-4xl">Feature Tiles</h2>
+      <h2 className="font-bold text-4xl my-3">Feature Tiles</h2>
       <div className="grid grid-cols-4 gap-5">
         {tiles.slice(0, 4).map((tile) => (
           <TilesCard key={tile.id} tile={tile} />

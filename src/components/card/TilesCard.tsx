@@ -5,7 +5,6 @@ import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 
 const TilesCard = ({ tile }: { tile: Tile }) => {
-  console.log(tile);
   return (
     <div>
       <Card className=" gap-2 group cursor-pointer">

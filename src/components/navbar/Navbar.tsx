@@ -13,7 +13,7 @@ interface NavItem {
   icon: ReactNode;
 }
 
-const user = true;
+const user = false;
 
 const Navbar = () => {
   const navItems: NavItem[] = [
@@ -78,11 +78,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <NavLink href={"/login"} icon={<LuLogOut />}>
+            <NavLink href={"/"} icon={<LuLogOut />}>
               Logout
             </NavLink>
           ) : (
-            <NavLink href={"/"} icon={<CgLogIn />}>
+            <NavLink href={"/login"} icon={<CgLogIn />}>
               Login
             </NavLink>
           )}
