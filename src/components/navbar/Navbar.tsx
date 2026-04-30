@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import { FaHome } from "react-icons/fa";
 import NavLink from "../ui/NavLink";
@@ -6,6 +8,7 @@ import { ImProfile } from "react-icons/im";
 import { CgLogIn } from "react-icons/cg";
 import { LuLogOut } from "react-icons/lu";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 interface NavItem {
   name: string;
@@ -13,9 +16,9 @@ interface NavItem {
   icon: ReactNode;
 }
 
-const user = false;
-
 const Navbar = () => {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
   const navItems: NavItem[] = [
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "All Tiles", path: "/all-tiles", icon: <CiClock1 /> },
@@ -78,9 +81,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <NavLink href={"/"} icon={<LuLogOut />}>
+            <Link
+              href={"/login"}
+              onClick={async () => await authClient.signOut()}
+            >
               Logout
-            </NavLink>
+            </Link>
           ) : (
             <NavLink href={"/login"} icon={<CgLogIn />}>
               Login

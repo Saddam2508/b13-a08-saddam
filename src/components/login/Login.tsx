@@ -27,6 +27,7 @@ const Login = () => {
       rememberMe: true,
       callbackURL: "/",
     });
+
     if (data) {
       router.push("/");
     }
