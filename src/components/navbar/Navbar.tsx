@@ -7,26 +7,26 @@ import { CgLogIn } from "react-icons/cg";
 import { LuLogOut } from "react-icons/lu";
 import Link from "next/link";
 
-
-
 interface NavItem {
   name: string;
   path: string;
   icon: ReactNode;
 }
 
-
-const user = true
+const user = true;
 
 const Navbar = () => {
   const navItems: NavItem[] = [
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "All Tiles", path: "/all-tiles", icon: <CiClock1 /> },
-   
   ];
 
-  if(user){
-    navItems.push({ name: "My Profile", path: "/profile", icon: <ImProfile /> })
+  if (user) {
+    navItems.push({
+      name: "My Profile",
+      path: "/profile",
+      icon: <ImProfile />,
+    });
   }
 
   const link = (
@@ -36,16 +36,11 @@ const Navbar = () => {
           {item.name}
         </NavLink>
       ))}
-      {user? (<NavLink  href={"/login"} icon={ <LuLogOut/>}>
-          Logout
-        </NavLink>): (<NavLink  href={"/"} icon={<CgLogIn/> }>
-          Login
-        </NavLink>)}
     </>
   );
 
   return (
-    <div className="container mx-auto">
+    <div className="fixed z-999 w-full">
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -78,8 +73,19 @@ const Navbar = () => {
             <span className="text-green-800">Keeper</span>
           </Link>
         </div>
-        <div className="navbar-end hidden lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{link}</ul>
+        </div>
+        <div className="navbar-end">
+          {user ? (
+            <NavLink href={"/login"} icon={<LuLogOut />}>
+              Logout
+            </NavLink>
+          ) : (
+            <NavLink href={"/"} icon={<CgLogIn />}>
+              Login
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
