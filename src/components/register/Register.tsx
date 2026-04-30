@@ -14,27 +14,39 @@ import {
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
-const Login = () => {
+const Register = () => {
   const router = useRouter();
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const formObj = Object.fromEntries(formData.entries());
 
-    const { data, error } = await authClient.signIn.email({
+    const { data, error } = await authClient.signUp.email({
+      name: formObj.name as string,
+      image: formObj.image as string,
       email: formObj.email as string,
       password: formObj.password as string,
-      rememberMe: true,
       callbackURL: "/",
     });
+
     if (data) {
-      router.push("/");
+      router.push("/login");
     }
   };
 
   return (
     <div className="w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
       <Form className="flex flex-col gap-6" onSubmit={onSubmit}>
+        <TextField isRequired name="name" type="text">
+          <Label>Name</Label>
+          <Input placeholder="Enter your name" name="name" />
+          <FieldError />
+        </TextField>
+        <TextField isRequired name="image" type="text">
+          <Label>Photo-url(link)</Label>
+          <Input placeholder="Image url" name="image" />
+          <FieldError />
+        </TextField>
         <TextField
           isRequired
           name="email"
@@ -76,47 +88,14 @@ const Login = () => {
           <FieldError />
         </TextField>
         <div className="flex gap-2">
-          <Button type="submit">
+          <Button type="submit" className="w-full">
             <Check />
             Submit
           </Button>
-          <Button type="reset" variant="secondary">
-            Reset
-          </Button>
         </div>
       </Form>
-      <div className="flex flex-col justify-center items-center my-5 gap-3">
-        <Link href="/register" className="btn  no-underline  p-3 w-full">
-          {" "}
-          Register
-        </Link>
-        <div className="btn  items-center gap-2 w-full">
-          <svg width="20" height="20" viewBox="0 0 48 48">
-            <path
-              fill="#EA4335"
-              d="M24 9.5c3.54 0 6.71 1.22 9.21 3.61l6.85-6.85C35.98 2.69 30.4 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.2C12.43 13.09 17.72 9.5 24 9.5z"
-            />
-            <path
-              fill="#4285F4"
-              d="M46.1 24.5c0-1.64-.15-3.22-.42-4.75H24v9h12.4c-.54 2.9-2.17 5.36-4.62 7.02l7.2 5.6C43.91 37.1 46.1 31.4 46.1 24.5z"
-            />
-            <path
-              fill="#FBBC05"
-              d="M10.54 28.43A14.5 14.5 0 019.5 24c0-1.52.26-2.99.72-4.43l-7.98-6.2A24 24 0 000 24c0 3.84.92 7.45 2.56 10.68l7.98-6.25z"
-            />
-            <path
-              fill="#34A853"
-              d="M24 48c6.48 0 11.93-2.14 15.91-5.8l-7.2-5.6c-2.01 1.35-4.6 2.1-8.71 2.1-6.28 0-11.57-3.59-13.46-8.93l-7.98 6.25C6.51 42.62 14.62 48 24 48z"
-            />
-          </svg>
-
-          <Link href="google-login" className="no-underline  p-3">
-            Google Login
-          </Link>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
