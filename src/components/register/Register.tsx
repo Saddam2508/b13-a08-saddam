@@ -8,14 +8,13 @@ import {
   Form,
   Input,
   Label,
-  Link,
   TextField,
 } from "@heroui/react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { FormEvent } from "react";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const router = useRouter();
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -29,8 +28,14 @@ const Register = () => {
       callbackURL: "/",
     });
 
-    if (data) {
-      router.push("/login");
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    if (data?.user) {
+      toast.success("User register successfully");
+      redirect("/login");
     }
   };
 

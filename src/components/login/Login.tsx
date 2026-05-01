@@ -11,11 +11,11 @@ import {
   Link,
   TextField,
 } from "@heroui/react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { FormEvent } from "react";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const router = useRouter();
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -28,8 +28,14 @@ const Login = () => {
       callbackURL: "/",
     });
 
-    if (data) {
-      router.push("/");
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    if (data?.user) {
+      toast.success("Login successfully");
+      redirect("/");
     }
   };
 

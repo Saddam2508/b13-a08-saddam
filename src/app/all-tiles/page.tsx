@@ -1,11 +1,11 @@
+import AllTiles from "@/components/allTiles/AllTiles";
 
-
-const AllTiles = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const AllTilesPage = () => {
+  return (
+    <>
+      <AllTiles />
+    </>
+  );
 };
 
-export default AllTiles;
+export default AllTilesPage;
