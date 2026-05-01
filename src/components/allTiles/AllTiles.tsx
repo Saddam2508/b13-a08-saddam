@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useContext, useEffect } from "react";
-import TilesCard from "../card/TilesCard";
 import { fetchTilesData } from "@/helper/fetchData";
 import { Search } from "../search/Search";
 import { TilesContext } from "@/context/TilesContext";
+import AllTilesCard from "../card/AllTilesCard";
 
 const AllTiles = () => {
   const context = useContext(TilesContext);
@@ -28,7 +28,7 @@ const AllTiles = () => {
       <h2 className="font-bold text-4xl my-3">The Gallery</h2>
       <div className="grid grid-cols-4 gap-5">
         {tiles.map((tile) => (
-          <TilesCard key={tile.id} tile={tile} />
+          <AllTilesCard key={tile.id} tile={tile} />
         ))}
       </div>
     </div>

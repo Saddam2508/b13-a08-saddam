@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 
-const TilesCard = ({ tile }: { tile: Tile }) => {
+const AllTilesCard = ({ tile }: { tile: Tile }) => {
   return (
     <div>
       <Card className=" gap-2 group cursor-pointer">
@@ -25,15 +25,16 @@ const TilesCard = ({ tile }: { tile: Tile }) => {
             </Chip>
           </div>
           <Link
-            href={"/tile-details"}
+            href={`/all-tiles/${tile.id}`}
             className="absolute right-2  bottom-2 opacity-0 transition duration-300 group-hover:opacity-100"
           >
             <Button>View Details</Button>
           </Link>
         </div>
+        <Card.Header> {tile.title} </Card.Header>
       </Card>
     </div>
   );
 };
 
-export default TilesCard;
+export default AllTilesCard;
