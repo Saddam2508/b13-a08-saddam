@@ -1,10 +1,27 @@
-import React from "react";
+"use client";
+
+import React, { useContext, useEffect } from "react";
 import TilesCard from "../card/TilesCard";
 import { fetchTilesData } from "@/helper/fetchData";
 import { Search } from "../search/Search";
+import { TilesContext } from "@/context/TilesContext";
 
-const AllTiles = async () => {
-  const tiles = await fetchTilesData();
+const AllTiles = () => {
+  const context = useContext(TilesContext);
+  if (!context) {
+    throw new Error("useTiles must be used within TilesProvider");
+  }
+  const { tiles, setTiles, setAllTiles } = context;
+
+  useEffect(() => {
+    const loadTiles = async () => {
+      const data = await fetchTilesData();
+      setTiles(data);
+      setAllTiles(data);
+    };
+    loadTiles();
+  }, []);
+
   return (
     <div className="container mx-auto mt-30">
       <Search />

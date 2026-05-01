@@ -1,5 +1,7 @@
 "use client";
 
+import { TilesContext } from "@/context/TilesContext";
+
 import {
   Button,
   Description,
@@ -8,12 +10,19 @@ import {
   SearchField,
   Spinner,
 } from "@heroui/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FormEvent } from "react";
 
 export const Search = () => {
+  const context = useContext(TilesContext);
+  if (!context) {
+    throw new Error("useTiles must be used within TilesProvider");
+  }
+  const { allTiles, setTiles } = context;
+
   const [value, setValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const MIN_LENGTH = 3;
   const isInvalid = value.length > 0 && value.length < MIN_LENGTH;
 
@@ -25,10 +34,12 @@ export const Search = () => {
     }
 
     setIsSubmitting(true);
-
     // Simulate API call
     setTimeout(() => {
-      console.log("Search submitted:", { query: value });
+      const filteredData = allTiles.filter((tile) =>
+        tile.title.toLowerCase().includes(value.toLowerCase()),
+      );
+      setTiles(filteredData);
       setValue("");
       setIsSubmitting(false);
     }, 1500);
