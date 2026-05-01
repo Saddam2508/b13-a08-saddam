@@ -21,4 +21,7 @@ export interface Tile {
   dimensions: string;
   material: string;
   inStock: boolean;
+  creator: string;
+  tags: string[];
+  rating: number;
 }

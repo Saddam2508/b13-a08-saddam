@@ -6,7 +6,6 @@ import NavLink from "../ui/NavLink";
 import { CiClock1 } from "react-icons/ci";
 import { ImProfile } from "react-icons/im";
 import { CgLogIn } from "react-icons/cg";
-import { LuLogOut } from "react-icons/lu";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 

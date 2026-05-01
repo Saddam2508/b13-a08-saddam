@@ -32,6 +32,10 @@ const AllTilesCard = ({ tile }: { tile: Tile }) => {
           </Link>
         </div>
         <Card.Header> {tile.title} </Card.Header>
+        <Card.Content>
+          {" "}
+          {tile.material} {tile.dimensions}{" "}
+        </Card.Content>
       </Card>
     </div>
   );

@@ -1,5 +1,5 @@
+import DetailsCard from "@/components/card/DetailsCard";
 import { fetchTilesData } from "@/helper/fetchData";
-import React from "react";
 
 const TilesDetailsPage = async ({
   params,
@@ -9,8 +9,12 @@ const TilesDetailsPage = async ({
   const { id } = await params;
   const allTiles = await fetchTilesData();
   const selectedTile = allTiles.find((tile) => tile.id === id);
-  console.log(selectedTile);
-  return <div></div>;
+  if (!selectedTile) return;
+  return (
+    <div>
+      <DetailsCard selectedTile={selectedTile} />
+    </div>
+  );
 };
 
 export default TilesDetailsPage;
