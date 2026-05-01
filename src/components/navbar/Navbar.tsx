@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { FaHome } from "react-icons/fa";
 import NavLink from "../ui/NavLink";
 import { CiClock1 } from "react-icons/ci";
@@ -8,6 +8,7 @@ import { ImProfile } from "react-icons/im";
 import { CgLogIn } from "react-icons/cg";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 
 interface NavItem {
   name: string;
@@ -16,6 +17,8 @@ interface NavItem {
 }
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const navItems: NavItem[] = [
@@ -80,12 +83,29 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <Link
-              href={"/login"}
-              onClick={async () => await authClient.signOut()}
-            >
-              Logout
-            </Link>
+            <div onClick={() => setToggle(!toggle)} className="relative">
+              <div className="avatar avatar-online">
+                <div className="w-24 rounded-full">
+                  <Image
+                    src="https://img.daisyui.com/images/profile/demo/gordon@192.webp"
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
+                </div>
+              </div>
+              {toggle ? (
+                <Link
+                  href={"/login"}
+                  onClick={async () => await authClient.signOut()}
+                  className="btn absolute -bottom-10 -left-15 bg-red-500 text-white"
+                >
+                  Logout
+                </Link>
+              ) : (
+                ""
+              )}
+            </div>
           ) : (
             <NavLink href={"/login"} icon={<CgLogIn />}>
               Login
