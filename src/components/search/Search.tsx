@@ -39,6 +39,7 @@ export const Search = () => {
       const filteredData = allTiles.filter((tile) =>
         tile.title.toLowerCase().includes(value.toLowerCase()),
       );
+      if(!filteredData) return <p>Searching data not found</p>
       setTiles(filteredData);
       setValue("");
       setIsSubmitting(false);

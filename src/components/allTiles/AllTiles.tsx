@@ -23,6 +23,7 @@ const AllTiles = () => {
     loadTiles();
   }, []);
 
+  if(!tiles) return <p> No data found</p>
   return (
     <div className="container mx-auto mt-30">
       <Search />

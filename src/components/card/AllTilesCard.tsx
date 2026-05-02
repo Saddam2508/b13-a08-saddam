@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 
 const AllTilesCard = ({ tile }: { tile: Tile }) => {
+  if(!tile) return <p> No data found</p>
   return (
     <div>
       <Card className=" gap-2 group cursor-pointer">
