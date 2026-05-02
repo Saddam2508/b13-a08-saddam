@@ -11,42 +11,46 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import Link from "next/link";
 
-const ProfilePage = () => {
+const UpdateProfilePage = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
   console.log(user);
   return (
     <div className="w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
-      <h2 className="text-[1.75rem] sm:text-4xl text-center my-3">
-        My Profile
-      </h2>
       <Form className="flex flex-col gap-6">
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
-          <Input name="name" value={user?.name} readOnly />
+          <Input name="name" value={user?.name} />
           <FieldError />
         </TextField>
         <TextField isRequired name="image" type="text">
           <Label>Photo-url(link)</Label>1112
-          <Input name="image" value={user?.image || ""} readOnly />
+          <Input name="image" value={user?.image || ""} />
           <FieldError />
         </TextField>
         <TextField isRequired name="email" type="email">
           <Label>Email</Label>
-          <Input name="email" value={user?.email} readOnly />
+          <Input name="email" value={user?.email} />
           <FieldError />
         </TextField>
+        <TextField isRequired minLength={8} name="password" type="password">
+          <Label>Password</Label>
+          <Input placeholder="Enter your password" name="password" />
+          <Description>
+            Must be at least 8 characters with 1 uppercase and 1 number
+          </Description>
+          <FieldError />
+        </TextField>
+        <div className="flex gap-2">
+          <Button type="submit" className="w-full">
+            <Check />
+            Submit
+          </Button>
+        </div>
       </Form>
-      <div className="mt-3">
-        <Link href={`/profile/${user?.id}`} className="btn w-full">
-          <Check />
-          Update
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default ProfilePage;
+export default UpdateProfilePage;
