@@ -1,28 +1,37 @@
-"use client"
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-
+import { Check, LocationArrow } from "@gravity-ui/icons";
+import { CiLocationOn, CiVoicemail } from "react-icons/ci";
+import { GoMail } from "react-icons/go";
+import { MdOutlinePhoneBluetoothSpeaker } from "react-icons/md";
+import {
+  Button,
+  Description,
+  FieldError,
+  Form,
+  Input,
+  Label,
+  TextArea,
+  TextField,
+} from "@heroui/react";
 
 const Footer = () => {
   return (
-    <motion.div initial={{opacity: 0, y: 150}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true}}
-                 transition={{
-                duration: 0.45,
-                ease: "easeOut",
-            }} className="bg-black py-8 md:py-20  text-white px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 150 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.45,
+        ease: "easeOut",
+      }}
+      className="py-8 md:py-20  px-6 bg-amber-50"
+    >
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
-          <div className="space-y-3">
-            <h2 className=" text-2xl md:text-5xl mb-5">DigiTools</h2>
-            <p>
-              Premium digital tools for creators, professionals, and businesses.
-              Work smarter with our suite of powerful tools.
-            </p>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div>
             <h3 className="text-xl mb-3">Product</h3>
             <ul className="space-y-2">
@@ -37,40 +46,6 @@ const Footer = () => {
               </li>
               <li>
                 <a href="">Integrations</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-xl mb-3">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="">About</a>
-              </li>
-              <li>
-                <a href="">Blog</a>
-              </li>
-              <li>
-                <a href="">Careers</a>
-              </li>
-              <li>
-                <a href="">Press</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-xl mb-3">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="">Documentation</a>
-              </li>
-              <li>
-                <a href="">Help Center</a>
-              </li>
-              <li>
-                <a href="">Community</a>
-              </li>
-              <li>
-                <a href="">Contact</a>
               </li>
             </ul>
           </div>
@@ -100,8 +75,67 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          <div>
+            <h3 className="text-xl mb-3">Contact Us</h3>
+            <ul className="space-y-2">
+              <li className="flex gap-1 items-center">
+                {" "}
+                <CiLocationOn /> Dhaka, Bangladesh
+              </li>
+              <li className="flex gap-1 items-center">
+                {" "}
+                <GoMail /> saddam@admin.com
+              </li>
+              <li className="flex gap-1 items-center">
+                <MdOutlinePhoneBluetoothSpeaker /> +880177777777777
+              </li>
+            </ul>
+          </div>
+          <div className="bg-base-100 rounded-2xl shadow-md p-3">
+            <h3 className="text-xl mb-3">Get In Touch With Us</h3>
+            <p className="text-xs text-amber-500 font-extrabold">
+              AND WE WILL GET BACK TO YOU
+            </p>
+            <Form className="flex flex-col gap-2 mt-3">
+              <TextField isRequired name="name" type="text">
+                <Input
+                  placeholder="Enter your name"
+                  name="name"
+                  className="bg-gray-200"
+                />
+                <FieldError />
+              </TextField>
+              <TextField isRequired name="email" type="email">
+                <Input
+                  placeholder="Enter your email"
+                  name="email"
+                  className="bg-gray-200"
+                />
+                <FieldError />
+              </TextField>
+              <TextField isRequired name="subject" type="text">
+                <Input
+                  placeholder="subject"
+                  name="subject"
+                  className="bg-gray-200"
+                />
+                <FieldError />
+              </TextField>
+              <TextArea
+                name="message"
+                placeholder="message"
+                className="bg-gray-200"
+              ></TextArea>
+              <div className="flex gap-1">
+                <Button type="submit" className="w-full">
+                  <Check />
+                  Submit
+                </Button>
+              </div>
+            </Form>
+          </div>
         </div>
-        <div className="flex flex-col-reverse sm:flex-row justify-between text-white mt-10 border-t border-gray-600 pt-5">
+        <div className="flex flex-col-reverse sm:flex-row justify-between mt-10 border-t border-gray-600 pt-5">
           <div>
             <p>©2026 Digitools. All rights reserved.</p>
           </div>
