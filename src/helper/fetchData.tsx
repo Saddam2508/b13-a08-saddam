@@ -5,7 +5,7 @@ export const fetchTilesData = async () => {
 
   if (!baseUrl) throw new Error("Missing APP_URL");
 
-  const res = await fetch(`/tiles_data.json`);
+  const res = await fetch(`${baseUrl}/tiles_data.json`);
 
   if (!res.ok) return null;
 
