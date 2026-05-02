@@ -39,6 +39,16 @@ const Login = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    const { data, error } = await authClient.signIn.social({
+      provider: "google",
+    });
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+  };
+
   return (
     <div className="w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
       <Form className="flex flex-col gap-6" onSubmit={onSubmit}>
@@ -117,9 +127,12 @@ const Login = () => {
             />
           </svg>
 
-          <Link href="google-login" className="no-underline  p-3">
+          <button
+            onClick={handleGoogleSignIn}
+            className="no-underline  p-3 cursor-pointer"
+          >
             Google Login
-          </Link>
+          </button>
         </div>
       </div>
     </div>

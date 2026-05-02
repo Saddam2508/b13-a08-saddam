@@ -6,7 +6,6 @@ const AllTilesPage = async () => {
   const tilesDatas = await fetchTilesData();
   if (!tilesDatas) return <p> No data found</p>;
   const tilesData: Tile[] = tilesDatas;
-  console.log("tilesData", tilesData);
   return (
     <div>
       <AllTiles tilesData={tilesData} />

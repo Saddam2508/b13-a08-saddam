@@ -1,7 +1,7 @@
 import { Tile } from "@/types/tile";
 
 export const fetchTilesData = async () => {
-  const baseUrl = process.env.BETTER_AUTH_URL;
+  const baseUrl = process.env.BETTER_AUTH_URL; //"http://localhost:3000"||
 
   if (!baseUrl) throw new Error("Missing APP_URL");
 
