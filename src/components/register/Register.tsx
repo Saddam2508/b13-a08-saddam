@@ -40,16 +40,16 @@ const Register = () => {
   };
 
   return (
-    <div className="w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
-      <Form className="flex flex-col gap-6" onSubmit={onSubmit}>
+    <div className="w-full max-w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
+      <Form className="flex flex-col gap-6 w-full" onSubmit={onSubmit}>
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
-          <Input placeholder="Enter your name" name="name" />
+          <Input placeholder="Enter your name" name="name" className="w-full" />
           <FieldError />
         </TextField>
         <TextField isRequired name="image" type="text">
           <Label>Photo-url(link)</Label>
-          <Input placeholder="Image url" name="image" />
+          <Input placeholder="Image url" name="image" className="w-full" />
           <FieldError />
         </TextField>
         <TextField
@@ -64,7 +64,11 @@ const Register = () => {
           }}
         >
           <Label>Email</Label>
-          <Input placeholder="john@example.com" name="email" />
+          <Input
+            placeholder="john@example.com"
+            name="email"
+            className="w-full"
+          />
           <FieldError />
         </TextField>
         <TextField
@@ -86,7 +90,11 @@ const Register = () => {
           }}
         >
           <Label>Password</Label>
-          <Input placeholder="Enter your password" name="password" />
+          <Input
+            placeholder="Enter your password"
+            name="password"
+            className="w-full"
+          />
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
           </Description>

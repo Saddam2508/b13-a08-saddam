@@ -50,8 +50,8 @@ const Login = () => {
   };
 
   return (
-    <div className="w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
-      <Form className="flex flex-col gap-6" onSubmit={onSubmit}>
+    <div className="w-full max-w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
+      <Form className="flex flex-col gap-6 w-full" onSubmit={onSubmit}>
         <TextField
           isRequired
           name="email"
@@ -64,7 +64,11 @@ const Login = () => {
           }}
         >
           <Label>Email</Label>
-          <Input placeholder="john@example.com" name="email" />
+          <Input
+            placeholder="john@example.com"
+            name="email"
+            className="w-full"
+          />
           <FieldError />
         </TextField>
         <TextField
@@ -86,7 +90,11 @@ const Login = () => {
           }}
         >
           <Label>Password</Label>
-          <Input placeholder="Enter your password" name="password" />
+          <Input
+            placeholder="Enter your password"
+            name="password"
+            className="w-full"
+          />
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
           </Description>

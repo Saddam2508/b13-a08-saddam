@@ -8,7 +8,6 @@ import AllTilesCard from "../card/AllTilesCard";
 import { Tile } from "@/types/tile";
 
 const AllTiles = ({ tilesData }: { tilesData: Tile[] }) => {
-  console.log("AllTiles", tilesData);
   const context = useContext(TilesContext);
   if (!context) {
     throw new Error("useTiles must be used within TilesProvider");
