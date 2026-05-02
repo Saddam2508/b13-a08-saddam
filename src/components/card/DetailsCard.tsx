@@ -10,8 +10,8 @@ import Link from "next/link";
 const DetailsCard = ({ selectedTile }: { selectedTile: Tile }) => {
   return (
     <div className="mt-20 container mx-auto">
-      <Card className="grid grid-cols-1 md:grid-cols-2 p-5 gap-10">
-        <div className="relative aspect-square rounded-2xl h-[30vh] md:h-[70vh]">
+      <Card className="grid grid-cols-1 md:grid-cols-2 p-5 gap-5 sm:gap-10">
+        <div className="relative aspect-square rounded-2xl h-[30vh] sm:h-[50vh] md:h-[70vh] sm:w-150 sm:mx-auto md:w-full">
           <Image
             alt="Cherries"
             className="object-cover aspect-square rounded-2xl"
