@@ -50,7 +50,7 @@ const Banner = () => {
               height={800}
               className="w-full"
             />
-            <h2 className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white">
+            <h2 className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 text-sm sm:text-4xl font-bold text-white w-full text-center">
               Discover Your Perfect Aesthetic
             </h2>
             <Link

@@ -19,7 +19,7 @@ const TilesCard = ({ tile }: { tile: Tile }) => {
           />
           <Chip className="absolute top-2 right-2"> {tile.category} </Chip>
           <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition duration-300 group-hover:opacity-100">
-            <Chip className="flex items-center gap-2 text-white bg-black/70 backdrop-blur-md px-4 py-2">
+            <Chip className="flex items-center gap-2 text-white bg-black/70 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2">
               <FaHeart className="text-red-500" />
               Favorite
             </Chip>
@@ -28,7 +28,7 @@ const TilesCard = ({ tile }: { tile: Tile }) => {
             href={"/tile-details"}
             className="absolute right-2  bottom-2 opacity-0 transition duration-300 group-hover:opacity-100"
           >
-            <Button>View Details</Button>
+            <Button className= "hidden sm:flex">View Details</Button>
           </Link>
         </div>
       </Card>

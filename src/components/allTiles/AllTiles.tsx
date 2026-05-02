@@ -16,6 +16,7 @@ const AllTiles = () => {
   useEffect(() => {
     const loadTiles = async () => {
       const data = await fetchTilesData();
+      if(!data) return <p> No data found</p>
       setTiles(data);
       setAllTiles(data);
     };
@@ -25,8 +26,8 @@ const AllTiles = () => {
   return (
     <div className="container mx-auto mt-30">
       <Search />
-      <h2 className="font-bold text-4xl my-3">The Gallery</h2>
-      <div className="grid grid-cols-4 gap-5">
+      <h2 className="font-bold text-[1.75rem] text-center sm:text-left sm:text-4xl my-3">The Gallery</h2>
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
         {tiles.map((tile) => (
           <AllTilesCard key={tile.id} tile={tile} />
         ))}

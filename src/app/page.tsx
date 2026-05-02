@@ -4,7 +4,7 @@ import Scroll from "@/components/scroll/Scroll";
 
 export default function Home() {
   return (
-    <div>
+    <div className="mt-17">
       <Banner />
       <Scroll />
       <FeaturedTiles />
