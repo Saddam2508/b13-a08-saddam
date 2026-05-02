@@ -1,10 +1,16 @@
 import AllTiles from "@/components/allTiles/AllTiles";
+import { fetchTilesData } from "@/helper/fetchData";
+import { Tile } from "@/types/tile";
 
-const AllTilesPage = () => {
+const AllTilesPage = async () => {
+  const tilesDatas = await fetchTilesData();
+  if (!tilesDatas) return <p> No data found</p>;
+  const tilesData: Tile[] = tilesDatas;
+  console.log("tilesData", tilesData);
   return (
-    <>
-      <AllTiles />
-    </>
+    <div>
+      <AllTiles tilesData={tilesData} />
+    </div>
   );
 };
 
