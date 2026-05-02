@@ -10,8 +10,8 @@ import Link from "next/link";
 const DetailsCard = ({ selectedTile }: { selectedTile: Tile }) => {
   return (
     <div className="mt-20 container mx-auto">
-      <Card className="grid grid-cols-2 p-5 gap-10">
-        <div className="relative aspect-square rounded-2xl h-[70vh]">
+      <Card className="grid grid-cols-1 md:grid-cols-2 p-5 gap-10">
+        <div className="relative aspect-square rounded-2xl h-[30vh] md:h-[70vh]">
           <Image
             alt="Cherries"
             className="object-cover aspect-square rounded-2xl"
@@ -27,7 +27,7 @@ const DetailsCard = ({ selectedTile }: { selectedTile: Tile }) => {
           </div>
           <hr className="border-t border-gray-300 my-6" />
           <Card.Header className="gap-5">
-            <Card.Title className="pr-8 text-3xl">
+            <Card.Title className="pr-8 text-2xl sm:text-3xl">
               {selectedTile.title}
             </Card.Title>
             <Card.Description>
@@ -52,7 +52,7 @@ const DetailsCard = ({ selectedTile }: { selectedTile: Tile }) => {
           <Card.Description>
             Dimensions : {selectedTile.dimensions}
           </Card.Description>
-          <Card.Description className="text-4xl font-bold mt-2">
+          <Card.Description className="text-[1.75rem] sm:text-4xl font-bold mt-2">
             Price : {selectedTile.price} {selectedTile.currency}
           </Card.Description>
           <hr className="border-t border-gray-300 my-6" />

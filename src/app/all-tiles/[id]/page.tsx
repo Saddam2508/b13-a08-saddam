@@ -8,6 +8,7 @@ const TilesDetailsPage = async ({
 }) => {
   const { id } = await params;
   const allTiles = await fetchTilesData();
+  if(!allTiles) return <p> No data found</p>
   const selectedTile = allTiles.find((tile) => tile.id === id);
   if (!selectedTile) return;
   return (
