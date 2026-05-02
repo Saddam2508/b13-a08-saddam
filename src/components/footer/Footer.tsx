@@ -1,19 +1,16 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { Check, LocationArrow } from "@gravity-ui/icons";
-import { CiLocationOn, CiVoicemail } from "react-icons/ci";
+import { Check } from "@gravity-ui/icons";
+import { CiLocationOn } from "react-icons/ci";
 import { GoMail } from "react-icons/go";
 import { MdOutlinePhoneBluetoothSpeaker } from "react-icons/md";
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
-  Label,
   TextArea,
   TextField,
 } from "@heroui/react";
@@ -31,8 +28,8 @@ const Footer = () => {
       className="py-8 md:py-20  px-6 bg-amber-50"
     >
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="bg-base-100 rounded-2xl shadow-md p-3 md:bg-transparent md:rounded-none md:shadow-none md:p-0">
             <h3 className="text-xl mb-3">Product</h3>
             <ul className="space-y-2">
               <li>
@@ -49,7 +46,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div>
+          <div className="bg-base-100 rounded-2xl shadow-md p-3 md:bg-transparent md:rounded-none md:shadow-none md:p-0">
             <h3 className="text-xl mb-3">Social Links</h3>
             <div className="flex space-x-4 text-xl">
               <a
@@ -75,7 +72,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div>
+          <div className="bg-base-100 rounded-2xl shadow-md p-3 md:bg-transparent md:rounded-none md:shadow-none md:p-0">
             <h3 className="text-xl mb-3">Contact Us</h3>
             <ul className="space-y-2">
               <li className="flex gap-1 items-center">

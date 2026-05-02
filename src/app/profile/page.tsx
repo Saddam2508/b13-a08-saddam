@@ -11,7 +11,7 @@ const ProfilePage = () => {
   const user = session?.user;
   if (!user) return null;
   return (
-    <div className="w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
+    <div className="w-full max-w-110 mx-auto my-30 px-5 py-10 shadow-md rounded-lg">
       <h2 className="text-[1.75rem] sm:text-4xl text-center my-3">
         My Profile
       </h2>
@@ -31,20 +31,25 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
-      <Form className="flex flex-col gap-6">
+      <Form className="flex flex-col gap-6 w-full">
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
-          <Input name="name" value={user?.name} readOnly />
+          <Input name="name" value={user?.name} readOnly className="w-full" />
           <FieldError />
         </TextField>
         <TextField isRequired name="image" type="text">
-          <Label>Photo-url(link)</Label>1112
-          <Input name="image" value={user?.image || ""} readOnly />
+          <Label>Photo-url(link)</Label>
+          <Input
+            name="image"
+            value={user?.image || ""}
+            readOnly
+            className="w-full"
+          />
           <FieldError />
         </TextField>
         <TextField isRequired name="email" type="email">
           <Label>Email</Label>
-          <Input name="email" value={user?.email} readOnly />
+          <Input name="email" value={user?.email} readOnly className="w-full" />
           <FieldError />
         </TextField>
       </Form>
