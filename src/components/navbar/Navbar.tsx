@@ -9,7 +9,7 @@ import { CgLogIn } from "react-icons/cg";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
-
+import im from "@/app/favicon.ico";
 interface NavItem {
   name: string;
   path: string;
@@ -78,9 +78,20 @@ const Navbar = () => {
                 {link}
               </ul>
             </div>
-            <Link href={"/"} className="text-2xl font-bold">
-              Keen
-              <span className="text-green-800">Keeper</span>
+            <Link
+              href={"/"}
+              className="text-2xl font-bold flex justify-center items-center gap-1"
+            >
+              <Image
+                src={im || "https://i.ibb.co/xqWRGMVJ/Screenshot-15.png"}
+                alt=""
+                width={50}
+                height={50}
+                className="bg-transparent"
+              />{" "}
+              <span>
+                <span className="text-red-500">Mosaic</span>Hub
+              </span>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

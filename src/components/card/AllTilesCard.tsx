@@ -2,12 +2,13 @@ import { Tile } from "@/types/tile";
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { FaHeart } from "react-icons/fa";
 
 const AllTilesCard = ({ tile }: { tile: Tile }) => {
-  if(!tile) return <p> No data found</p>
+  if (!tile) return <p> No data found</p>;
   return (
-    <div>
+    <Link href={`/all-tiles/${tile.id}`}>
       <Card className=" gap-2 group cursor-pointer">
         <div className="relative w-full aspect-square">
           <Image
@@ -25,12 +26,12 @@ const AllTilesCard = ({ tile }: { tile: Tile }) => {
               Favorite
             </Chip>
           </div>
-          <Link
-            href={`/all-tiles/${tile.id}`}
+          <Button
+            onClick={() => redirect(`/all-tiles/${tile.id}`)}
             className="absolute right-2  bottom-2 opacity-0 transition duration-300 group-hover:opacity-100"
           >
-            <Button>View Details</Button>
-          </Link>
+            View Details
+          </Button>
         </div>
         <Card.Header> {tile.title} </Card.Header>
         <Card.Content>
@@ -38,7 +39,7 @@ const AllTilesCard = ({ tile }: { tile: Tile }) => {
           {tile.material} {tile.dimensions}{" "}
         </Card.Content>
       </Card>
-    </div>
+    </Link>
   );
 };
 

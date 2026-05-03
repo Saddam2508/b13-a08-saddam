@@ -3,8 +3,13 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Profile | category-A8-Apple",
+};
 
 const ProfilePage = () => {
   const { data: session } = authClient.useSession();
